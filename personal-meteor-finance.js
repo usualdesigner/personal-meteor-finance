@@ -1,19 +1,21 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to personal-meteor-finance.";
-  };
 
-  Template.hello.events({
-    'click input': function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
+    Template.report.monthName = function (_month) {
+
+        var monthNames = [ "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December" ];
+
+        return monthNames[--_month];
+    };
+
+    Template.report.month = function () {
+        return this.params._month;
+    };
+
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+
+    //
+
 }
