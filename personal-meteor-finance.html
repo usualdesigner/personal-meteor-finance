@@ -18,9 +18,16 @@
 
 <template name="report">
     <h1>Report page</h1>
-    {{monthName _month}}
-    {{_year}}
-    {{_month}}
+    <h3>Report by {{monthName currentMonth}} of {{currentYear}} year.</h3>
+
+    <div class="btn-group">
+        <a class="btn btn-default" href="/report/{{prevYear}}/{{prevMonth}}">Prev</a>
+        <button type="button" disabled class="btn btn-default">Middle</button>
+        <a href="/report/{{nextYear}}/{{nextMonth}}" class="btn btn-default">Next</a>
+    </div>
+
+    <br/>
+    <br/><a h>Next</a>
 </template>
 
 <template name="notFound">
