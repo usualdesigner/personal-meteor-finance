@@ -46,6 +46,34 @@ if (Meteor.isClient) {
 
     });
 
+    Template.report.events({
+
+        'submit form': function(e) {
+
+            e.preventDefault();
+
+            var incoming = {
+                d: parseInt($(e.target).find('[name=d]').val()),
+                m: parseInt($(e.target).find('[name=m]').val()),
+                y: parseInt($(e.target).find('[name=y]').val()),
+                value: parseInt($(e.target).find('[name=value]').val()),
+                description: $(e.target).find('[name=description]').val()
+            }
+
+            incoming._id = Incoming.insert(incoming);
+
+        },
+
+        'click .incoming-remove': function(e) {
+
+            e.preventDefault();
+
+            Incoming.remove(this._id);
+
+        }
+
+    });
+
 }
 
 if (Meteor.isServer) {
