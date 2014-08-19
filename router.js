@@ -34,8 +34,9 @@ Router.map(function () {
                     prevMonth: prevMonth,
                     prevYear: prevYear,
                     currentMonth: currentMonth,
-                    currentYear: currentYear
+                    currentYear: currentYear,
                 };
+
                 return templateData;
 
             }

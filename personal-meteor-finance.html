@@ -6,28 +6,57 @@
     <div class="container">
         <div id="main" class="row-fluid">
             {{> yield}}
-            <a href="/">Home</a>
-            <a href="/report/2014/10">Report</a>
         </div>
     </div>
 </template>
 
 <template name="home">
-    <h1>Home page</h1>
+    <div class="page-header">
+        <h1>Home Page <small>Subtext for header</small></h1>
+    </div>
+    <a href="/report/2014/10">Test Report</a>
 </template>
 
 <template name="report">
-    <h1>Report page</h1>
-    <h3>Report by {{monthName currentMonth}} of {{currentYear}} year.</h3>
-
+    <div class="page-header">
+        <h1>
+            <a href="/" class="small">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+            Report Page <small>Report by {{monthName currentMonth}} of {{currentYear}} year.</small>
+        </h1>
+    </div>
+    <h3></h3>
     <div class="btn-group">
         <a class="btn btn-default" href="/report/{{prevYear}}/{{prevMonth}}">Prev</a>
-        <button type="button" disabled class="btn btn-default">Middle</button>
+        <button type="button" disabled class="btn btn-default">{{monthName currentMonth}} {{currentYear}}</button>
         <a href="/report/{{nextYear}}/{{nextMonth}}" class="btn btn-default">Next</a>
     </div>
-
-    <br/>
-    <br/><a h>Next</a>
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Direction</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each incoming}}
+                <tr>
+                    <td>{{m}}/{{y}}</td>
+                    <td>{{description}}</td>
+                    <td>{{value}} ₴</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-6">
+            details
+        </div>
+    </div>
 </template>
 
 <template name="notFound">

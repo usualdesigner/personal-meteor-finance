@@ -1,0 +1,1 @@
+Incoming = new Meteor.Collection('incoming');
