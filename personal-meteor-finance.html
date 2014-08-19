@@ -39,14 +39,16 @@
                 <tr>
                     <th>Date</th>
                     <th>Direction</th>
+                    <th>trend</th>
                     <th>Value</th>
                 </tr>
                 </thead>
                 <tbody>
                 {{#each incoming}}
                 <tr>
-                    <td>{{m}}/{{y}}</td>
+                    <td>{{d}}/{{m}}/{{y}}</td>
                     <td>{{description}}</td>
+                    <td>{{trend}}</td>
                     <td>{{value}} ₴</td>
                 </tr>
                 {{/each}}
@@ -54,7 +56,13 @@
             </table>
         </div>
         <div class="col-xs-6">
-            details
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4"></div>
+            </div>
+            <br/>Total Earning: {{incoming_earning_sum}}
+            <br/>Total Expense: {{incoming_expense_sum}}
         </div>
     </div>
 </template>
